@@ -10,6 +10,7 @@ class Background(pygame.sprite.Sprite,Tilesheet):
         self.image2,self.rect2 = self.load_image("assets/Final/Background_1.png",(1000,500))
         self.image3,self.rect3 = self.load_image("assets/Final/Grass_background_1.png")
         self.image4,self.rect4 = self.load_image("assets/Final/Grass_background_2.png")
+        self.image5,self.rect5 = self.load_image("assets/Final/Salt.png",(100,200))
         self.tile_sheet = Tilesheet("assets/Final/tiles.png", 80, 80, 4, 4)
         self.tile_sheet2 = Tilesheet("assets/Final/brush.png",112,92,2,2)
         self.platform_rect = []
@@ -27,6 +28,8 @@ class Background(pygame.sprite.Sprite,Tilesheet):
     def draw(self, screen):
         screen.blit(self.image1, (0,0))
         screen.blit(self.image2, (0,300))
+        screen.blit(self.image5, (400,550))
+        
         #screen.blit(self.image3, (self.rect3.x, self.rect3.y))
         #screen.blit(self.image4, (self.rect4.x, self.rect4.y))
         # for i in range(4):
@@ -37,13 +40,23 @@ class Background(pygame.sprite.Sprite,Tilesheet):
         # for i in range(20):
         #     screen.blit(self.tile_sheet.get_tile(3,3),(50*i,750))
         
-        screen.blit(self.tile_sheet.get_tile(1,3),(400,600))
+        #screen.blit(self.tile_sheet.get_tile(1,3),(400,600))
+        screen.blit(self.tile_sheet.get_tile(1,3),(300,700))
+        screen.blit(self.tile_sheet.get_tile(1,3),(500,500))
+        screen.blit(self.tile_sheet.get_tile(1,1),(700,700))
+        for i in range(20):
+            for j in range(3):
+                screen.blit(self.tile_sheet.get_tile(j,3),(50*i,750))
     def platform(self):
         if not self.platform_rect: 
             # for i in range(3):
             #     rect = self.tile_sheet.get_tile(i,3).get_rect(topleft=(200*i , 600))
             #     self.platform_rect.append(rect)
-            rect = self.tile_sheet.get_tile(1,3).get_rect(topleft=(400,600))    
-            self.platform_rect.append(rect)
+            #rect = self.tile_sheet.get_tile(1,3).get_rect(topleft=(400,600))    
+            rect2 = self.tile_sheet.get_tile(1,3).get_rect(topleft=(300,700))
+            rect3 = self.tile_sheet.get_tile(1,3).get_rect(topleft=(500,500))
+            #self.platform_rect.append(rect)
+            self.platform_rect.append(rect2)
+            self.platform_rect.append(rect3)
         return self.platform_rect
 
