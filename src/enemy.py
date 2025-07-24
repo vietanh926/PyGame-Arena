@@ -3,7 +3,7 @@ import pygame
 class Enemy(pygame.sprite.Sprite):
     def __init__(self,x,y):   
         super().__init__()
-        self.path = "assets/boss_demon/Final/demon_"
+        self.path = "boss_demon/Final/demon_"
         self.x =   x
         self.y =   y
         self.state = "idle"
